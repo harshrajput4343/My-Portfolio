@@ -1,11 +1,55 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Section } from "../ui/Section";
 import { Button } from "../ui/Button";
 import { Send, MapPin, Mail, Linkedin } from "lucide-react";
 import { Card } from "../ui/Card";
 
 export const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const { name, email, message } = formData;
+    
+    if (!name || !email || !message) {
+      setStatus("Please fill in all fields");
+      setTimeout(() => setStatus(""), 3000);
+      return;
+    }
+
+    // Create mailto link with pre-filled content
+    const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    );
+    const mailtoLink = `mailto:harshkumarsingh4343@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Open default email client
+    window.location.href = mailtoLink;
+    
+    setStatus("Opening your email client...");
+    
+    // Reset form after 2 seconds
+    setTimeout(() => {
+      setFormData({ name: "", email: "", message: "" });
+      setStatus("");
+    }, 2000);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
   return (
     <Section id="contact" className="container mx-auto px-6">
       <div className="max-w-4xl mx-auto">
@@ -18,11 +62,14 @@ export const Contact = () => {
 
         <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="space-y-2">
                 <label className="text-sm text-white/70 ml-1">Name</label>
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
                   placeholder="Harsh Kumar"
                   suppressHydrationWarning
@@ -32,6 +79,9 @@ export const Contact = () => {
                 <label className="text-sm text-white/70 ml-1">Email</label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
                   placeholder="harshkumarsingh4343@gmail.com"
                   suppressHydrationWarning
@@ -40,12 +90,20 @@ export const Contact = () => {
               <div className="space-y-2">
                 <label className="text-sm text-white/70 ml-1">Message</label>
                 <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors min-h-[150px]"
                   placeholder="Tell me about your project..."
                   suppressHydrationWarning
                 />
               </div>
-              <Button className="w-full">
+              {status && (
+                <p className={`text-sm ${status.includes("fill") ? "text-red-400" : "text-green-400"}`}>
+                  {status}
+                </p>
+              )}
+              <Button type="submit" className="w-full">
                 Send Message <Send size={18} />
               </Button>
             </form>
