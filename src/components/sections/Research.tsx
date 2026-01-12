@@ -82,7 +82,7 @@ const DataScienceVisual = () => {
           >
             <Database size={20} />
           </motion.div>
-          <span className="text-xs text-white/50">Raw Data</span>
+          <span className="text-xs text-foreground/50">Raw Data</span>
         </div>
 
         {/* Arrow */}
@@ -112,7 +112,7 @@ const DataScienceVisual = () => {
               ))}
             </div>
           </div>
-          <span className="text-xs text-white/50">Clean & Engineer</span>
+          <span className="text-xs text-foreground/50">Clean & Engineer</span>
         </div>
 
         {/* Arrow */}
@@ -137,7 +137,7 @@ const DataScienceVisual = () => {
               ))}
             </div>
           </div>
-          <span className="text-xs text-white/50">Train & Evaluate</span>
+          <span className="text-xs text-foreground/50">Train & Evaluate</span>
         </div>
 
         {/* Arrow */}
@@ -160,7 +160,7 @@ const DataScienceVisual = () => {
               <div className="w-4 h-1 bg-yellow-400 rounded-full" />
             </div>
           </motion.div>
-          <span className="text-xs text-white/50">Reports</span>
+          <span className="text-xs text-foreground/50">Reports</span>
         </div>
       </div>
 
@@ -177,14 +177,14 @@ export const Research = () => {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <FlaskConical className="text-cyan-400" />
-              <h2 className="text-4xl font-bold text-white">Experience</h2>
+              <h2 className="text-4xl font-bold text-foreground">Experience</h2>
             </div>
-            <h3 className="text-2xl text-blue-400 font-medium mb-2">
+            <h3 className="text-2xl text-blue-600 font-bold mb-2">
               Research Assistant
             </h3>
-            <p className="text-xl text-white/80 mb-4">IIIT Sri City (June 2025 – Aug 2025)</p>
+            <p className="text-xl text-foreground/80 mb-4">IIIT Sri City (June 2025 – Aug 2025)</p>
 
-            <ul className="space-y-4 text-white/70 leading-relaxed list-disc pl-4 marker:text-blue-500">
+            <ul className="space-y-4 text-foreground/70 leading-relaxed list-disc pl-4 marker:text-blue-500">
               <li>
                 Designed and built production-grade Python services and RESTful APIs using <strong>FastAPI and Flask</strong> to deploy AI-based IoT anomaly detection systems.
               </li>
@@ -201,7 +201,7 @@ export const Research = () => {
 
             <div className="flex flex-wrap gap-3 mt-8">
               {["FastAPI", "XGBoost", "MLflow", "CNN + Attention", "IoT Security"].map(tag => (
-                <span key={tag} className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-300 text-xs border border-blue-500/20">
+                <span key={tag} className="px-3 py-1 rounded-full bg-blue-600/10 text-blue-600 text-xs border border-blue-600/20 font-medium">
                   {tag}
                 </span>
               ))}
@@ -209,12 +209,12 @@ export const Research = () => {
           </div>
 
           <div className="pt-12 border-t border-white/10">
-            <h3 className="text-2xl text-blue-400 font-medium mb-2">
+            <h3 className="text-2xl text-blue-600 font-bold mb-2">
               Data Science Intern
             </h3>
-            <p className="text-xl text-white/80 mb-4">CodeClause (Dec 2025 – Jan 2026)</p>
+            <p className="text-xl text-foreground/80 mb-4">CodeClause (Dec 2025 – Jan 2026)</p>
 
-            <ul className="space-y-4 text-white/70 leading-relaxed list-disc pl-4 marker:text-blue-500">
+            <ul className="space-y-4 text-foreground/70 leading-relaxed list-disc pl-4 marker:text-blue-500">
               <li>
                 Built Python-based data pipelines for cleaning, transforming, and preparing real-world datasets for machine learning workflows.
               </li>
@@ -228,7 +228,7 @@ export const Research = () => {
 
             <div className="flex flex-wrap gap-3 mt-8">
               {["Python", "EDA", "Feature Engineering", "ML Pipelines", "Supervised Learning"].map(tag => (
-                <span key={tag} className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-300 text-xs border border-blue-500/20">
+                <span key={tag} className="px-3 py-1 rounded-full bg-blue-600/10 text-blue-600 text-xs border border-blue-600/20 font-medium">
                   {tag}
                 </span>
               ))}

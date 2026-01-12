@@ -1,11 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  /* Light Mode Base */
+  --background: #ffffff;
+  --foreground: #171717;
+  /* Neutral 900 */
   --primary: #2563eb;
   --accent: #00f5d4;
-  --surface: #171717;
+  --surface: #f5f5f5;
+
+  /* Aniwall Light Ambient COlors */
+  --ambient-cyan: #22d3ee;
+  --ambient-purple: #a78bfa;
+  --ambient-indigo: #818cf8;
 }
 
 @theme inline {
@@ -14,23 +21,47 @@
   --color-primary: var(--primary);
   --color-accent: var(--accent);
   --color-surface: var(--surface);
-  
+
   --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
   --font-display: var(--font-space-grotesk);
 
   --animate-spin-slow: spin 8s linear infinite;
   --animate-float: float 6s ease-in-out infinite;
   --animate-glow: glow 2s ease-in-out infinite alternate;
+  --animate-drift: drift 20s linear infinite;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 @keyframes glow {
-  from { box-shadow: 0 0 10px -10px var(--primary); }
-  to { box-shadow: 0 0 20px 5px var(--primary); }
+  from {
+    box-shadow: 0 0 10px -10px var(--primary);
+  }
+
+  to {
+    box-shadow: 0 0 20px 5px var(--primary);
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Glassmorphism utilities */
@@ -54,12 +85,53 @@
   transform: translateY(-2px);
 }
 
+/* Global Ambient Background System */
+.ambient-background {
+  position: fixed;
+  inset: 0;
+  z-index: -50;
+  background-color: var(--background);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  mix-blend-mode: screen;
+  animation: drift 25s infinite linear;
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -40;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  z-index: -30;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+  pointer-events: none;
+}
+
 body {
   font-family: var(--font-sans);
   background: var(--background);
   color: var(--foreground);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
 }

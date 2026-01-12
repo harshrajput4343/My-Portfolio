@@ -1,65 +1,67 @@
 "use client";
 import React from "react";
 import { Section } from "../ui/Section";
-import { Card } from "../ui/Card";
-import { motion } from "framer-motion";
+import Image from "next/image";
+import { BrainCircuit } from "lucide-react";
 
 export const About = () => {
   return (
     <Section id="about" className="container mx-auto px-6">
       <div className="flex flex-col md:flex-row gap-12 items-center">
+
         {/* Text Content */}
-        <div className="flex-1 space-y-6">
-          <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60">
-            About Me
-          </h2>
-          <div className="space-y-4 text-lg text-white/70 leading-relaxed">
+        <div className="md:w-3/5">
+          <h2 className="text-4xl font-bold text-foreground mb-6">About Me</h2>
+          <div className="space-y-4 text-lg text-foreground/70 leading-relaxed">
             <p>
-              I am a technologist specializing in <span className="text-blue-400">Intelligent Systems</span> and <span className="text-cyan-400">Machine Learning</span>.
-              Currently pursuing my B.Tech in Electronics and Communication Engineering at <strong className="text-white">IIIT Sri City</strong> (2022–2026),
+              I am a technologist specializing in <span className="font-bold text-blue-600">Intelligent Systems</span> and <span className="font-bold text-blue-600">Machine Learning</span>.
+              Currently pursuing my B.Tech in Electronics and Communication Engineering at <strong className="text-blue-600">IIIT Sri City</strong> (2022–2026),
               I bridge the gap between hardware constraints and advanced AI models.
             </p>
             <p>
               Born in Aurangabad, Bihar, my journey has been shaped by a deep curiosity about how systems think, how data moves, and how intelligent decisions are formed from raw information.
-              As a <strong className="text-white">Research Assistant</strong> in AI & IoT Security, I do not work at the level of isolated experiments or toy models;
+              As a <strong className="text-blue-600">Research Assistant</strong> in AI & IoT Security, I do not work at the level of isolated experiments or toy models;
               I design end-to-end, production-grade intelligence pipelines that transform noisy real-world data into reliable, deployable systems.
               My focus is on building architectures that remain stable under scale, resilient to uncertainty, and trustworthy in environments where failures carry real consequences.
             </p>
-            <div className="pt-4 grid grid-cols-2 gap-4">
-              <div className="p-4 rounded-lg bg-white/5 border border-white/5">
-                <h4 className="text-2xl font-bold text-white mb-1">3+</h4>
-                <p className="text-sm text-white/50">Years of Coding</p>
+          </div>
+
+          <div className="flex gap-8 mt-8">
+            <div>
+              <div className="flex items-baseline gap-1">
+                <h4 className="text-2xl font-bold text-foreground mb-1">3+</h4>
               </div>
-              <div className="p-4 rounded-lg bg-white/5 border border-white/5">
-                <h4 className="text-2xl font-bold text-white mb-1">10+</h4>
-                <p className="text-sm text-white/50">Projects Built</p>
+              <p className="text-sm text-foreground/50">Years of Coding</p>
+            </div>
+            <div>
+              <div className="flex items-baseline gap-1">
+                <h4 className="text-2xl font-bold text-foreground mb-1">10+</h4>
               </div>
+              <p className="text-sm text-foreground/50">Projects Built</p>
             </div>
           </div>
         </div>
 
-        {/* Image/Visual Placeholder - REPLACED WITH REAL IMAGE */}
-        <div className="flex-1 w-full max-w-md relative">
-          <Card className="aspect-[4/5] relative flex items-center justify-center p-0 overflow-hidden group border-0">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-400/20 z-0 group-hover:scale-110 transition-transform duration-700" />
-
-            {/* Profile Image */}
-            <div className="relative w-full h-full">
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+        {/* Image/Decoration Side */}
+        <div className="md:w-2/5 flex justify-center relative">
+          <div className="absolute inset-0 bg-blue-500/10 blur-3xl rounded-full" />
+          <div className="relative z-10 w-80 h-80 rounded-3xl overflow-hidden glass-card p-2 rotate-3 hover:rotate-0 transition-all duration-500">
+            <div className="w-full h-full bg-surface/50 rounded-2xl overflow-hidden relative">
+              <Image
                 src="/images/profile.jpg"
                 alt="Harsh Kumar"
-                className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                fill
+                className="object-cover"
               />
             </div>
-
-            <div className="absolute bottom-6 left-6 z-20">
-              <h3 className="text-2xl font-bold text-white">Harsh Kumar</h3>
-              <p className="text-blue-400">AI Engineer</p>
+            {/* Name Overlay */}
+            <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm px-3 py-1 rounded-lg border border-foreground/5">
+              <h3 className="text-2xl font-bold text-foreground">Harsh Kumar</h3>
+              <p className="text-xs text-blue-500 font-mono">@harshrajput4343</p>
             </div>
-          </Card>
+          </div>
         </div>
+
       </div>
     </Section>
   );
