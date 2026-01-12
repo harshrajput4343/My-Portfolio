@@ -34,13 +34,13 @@ export const Footer = () => {
         <div>
           <h4 className="font-bold text-white mb-4">Connect</h4>
           <div className="flex gap-4">
-            <Link href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all text-white/60">
+            <Link href="https://github.com/harshrajput4343/" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all text-white/60">
               <Github size={20} />
             </Link>
-            <Link href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all text-white/60">
+            <Link href="https://www.linkedin.com/in/harshkumar4343/" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all text-white/60">
               <Linkedin size={20} />
             </Link>
-            <Link href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all text-white/60">
+            <Link href="mailto:harshkumarsingh4343@gmail.com" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all text-white/60">
               <Mail size={20} />
             </Link>
           </div>
