@@ -84,7 +84,7 @@ export const Navigation = () => {
                     onMouseLeave={() => setResumeOpen(false)}
                   >
                     <a
-                      href="Resume\Harsh_S20220020277_SDE.pdf"
+                      href="/resumes/Harsh_SDE_Resume.pdf"
                       target="_blank"
                       className="flex items-center gap-3 px-4 py-3 text-sm text-foreground/80 hover:bg-foreground/5 hover:text-cyan-400 transition-colors border-b border-foreground/5"
                     >
@@ -92,7 +92,7 @@ export const Navigation = () => {
                       <span>SDE (Software)</span>
                     </a>
                     <a
-                      href="Resume/Harsh_S20220020277_AI.pdf"
+                      href="/resumes/Harsh_AI_Resume.pdf"
                       target="_blank"
                       className="flex items-center gap-3 px-4 py-3 text-sm text-foreground/80 hover:bg-foreground/5 hover:text-cyan-400 transition-colors"
                     >
