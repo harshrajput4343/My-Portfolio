@@ -7,7 +7,7 @@ import { Research } from "@/components/sections/Research";
 import { Projects } from "@/components/sections/Projects";
 import { Certifications } from "@/components/sections/Certifications";
 import { Contact } from "@/components/sections/Contact";
-
+import { Analytics } from "@vercel/analytics/next"
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-blue-500/30">
@@ -20,6 +20,7 @@ export default function Home() {
         <Projects />
         <Certifications />
         <Contact />
+        <Analytics/>
       </div>
       <Footer />
     </main>
