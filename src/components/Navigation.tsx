@@ -104,7 +104,7 @@ export const Navigation = () => {
                       target="_blank"
                       className="flex items-center gap-3 px-4 py-3 text-sm text-foreground/80 hover:bg-foreground/5 hover:text-cyan-400 transition-colors"
                     >
-                      <Brain size={16} className="text-purple-400" />
+                      <Code size={16} className="text-blue-400" />
                       <span>Backend Engineer</span>
                     </a>
                   </motion.div>
