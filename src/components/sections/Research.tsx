@@ -1,9 +1,8 @@
 "use client";
 import React from "react";
 import { Section } from "../ui/Section";
-import { Card } from "../ui/Card";
 import { motion } from "framer-motion";
-import { FlaskConical, Network, Shield, Server, Database } from "lucide-react";
+import { FlaskConical, Server, Database, Cloud, Cog, Workflow, FolderOpen } from "lucide-react";
 
 const ResearchVisual = () => {
   return (
@@ -68,111 +67,108 @@ const ResearchVisual = () => {
   )
 }
 
-const DataScienceVisual = () => {
+const AWSPipelineVisual = () => {
   return (
     <div className="relative h-96 w-full bg-white/5 rounded-xl overflow-hidden flex items-center justify-center border border-white/5">
-      {/* Data Science Pipeline Diagram */}
-      <div className="relative z-10 flex items-center gap-3 md:gap-6">
-        {/* Raw Data */}
+      <div className="relative z-10 flex items-center gap-3 md:gap-5">
+        {/* S3 Buckets */}
         <div className="flex flex-col items-center gap-2">
           <motion.div
-            animate={{ rotate: [0, 360] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-            className="w-14 h-14 rounded-lg bg-purple-500/20 border border-purple-500 flex items-center justify-center text-purple-400"
+            animate={{ y: [0, -6, 0] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            className="w-16 h-16 rounded-lg bg-orange-500/20 border border-orange-500 flex items-center justify-center text-orange-400"
           >
-            <Database size={20} />
+            <FolderOpen size={22} />
           </motion.div>
-          <span className="text-xs text-foreground/50">Raw Data</span>
+          <span className="text-xs text-foreground/50 text-center leading-tight">S3 Buckets<br /><span className="text-[10px] text-foreground/30">raw / labeled / processed</span></span>
         </div>
 
         {/* Arrow */}
         <motion.div
-          animate={{ x: [0, 8, 0], opacity: [0.5, 1, 0.5] }}
+          animate={{ x: [0, 8, 0], opacity: [0.4, 1, 0.4] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="h-0.5 w-8 bg-gradient-to-r from-purple-500 to-blue-500"
+          className="h-0.5 w-8 bg-gradient-to-r from-orange-500 to-yellow-500"
         />
 
-        {/* EDA & Cleaning */}
+        {/* SageMaker Ground Truth */}
         <div className="flex flex-col items-center gap-2">
-          <div className="w-20 h-20 rounded-xl bg-blue-500/10 border border-blue-500/50 flex flex-col items-center justify-center text-blue-400 backdrop-blur-md relative overflow-hidden">
-            <div className="text-xs font-mono mb-1">EDA</div>
-            <motion.div
-              animate={{ y: [-40, 40] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute w-full h-1 bg-blue-400 opacity-50"
-            />
-            <div className="flex gap-1 mt-1">
+          <div className="w-20 h-20 rounded-xl bg-yellow-500/10 border border-yellow-500/50 flex flex-col items-center justify-center text-yellow-400 backdrop-blur-md p-2">
+            <motion.div animate={{ rotate: [0, 360] }} transition={{ duration: 10, repeat: Infinity, ease: "linear" }}>
+              <Cog size={20} />
+            </motion.div>
+            <div className="text-[9px] font-mono text-center leading-tight mt-1">SageMaker<br />Ground Truth</div>
+          </div>
+          <span className="text-xs text-foreground/50">Labeling</span>
+        </div>
+
+        {/* Arrow */}
+        <motion.div
+          animate={{ x: [0, 8, 0], opacity: [0.4, 1, 0.4] }}
+          transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
+          className="h-0.5 w-8 bg-gradient-to-r from-yellow-500 to-purple-500"
+        />
+
+        {/* Lambda */}
+        <div className="flex flex-col items-center gap-2">
+          <div className="w-20 h-20 rounded-xl bg-purple-500/10 border border-purple-500/50 flex flex-col items-center justify-center text-purple-400 backdrop-blur-md">
+            <div className="text-xs font-mono mb-1">Lambda</div>
+            <div className="flex gap-1">
               {[1, 2, 3].map(i => (
                 <motion.div
                   key={i}
-                  animate={{ height: ["8px", "16px", "8px"] }}
+                  animate={{ scaleY: [0.5, 1.5, 0.5] }}
                   transition={{ duration: 1, delay: i * 0.2, repeat: Infinity }}
-                  className="w-1.5 bg-blue-400 rounded-full"
+                  className="w-1.5 h-3 bg-purple-400 rounded-full origin-bottom"
                 />
               ))}
             </div>
           </div>
-          <span className="text-xs text-foreground/50">Clean & Engineer</span>
+          <span className="text-xs text-foreground/50">Preprocessing</span>
         </div>
 
         {/* Arrow */}
         <motion.div
-          animate={{ x: [0, 8, 0], opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
-          className="h-0.5 w-8 bg-gradient-to-r from-blue-500 to-green-500"
-        />
-
-        {/* ML Model */}
-        <div className="flex flex-col items-center gap-2">
-          <div className="w-20 h-20 rounded-xl bg-green-500/10 border border-green-500/50 flex flex-col items-center justify-center text-green-400 backdrop-blur-md">
-            <div className="text-xs font-mono mb-1">ML Model</div>
-            <div className="grid grid-cols-2 gap-1">
-              {[1, 2, 3, 4].map(i => (
-                <motion.div
-                  key={i}
-                  animate={{ scale: [0.8, 1.2, 0.8] }}
-                  transition={{ duration: 1.5, delay: i * 0.15, repeat: Infinity }}
-                  className="w-2 h-2 bg-green-400 rounded-sm"
-                />
-              ))}
-            </div>
-          </div>
-          <span className="text-xs text-foreground/50">Train & Evaluate</span>
-        </div>
-
-        {/* Arrow */}
-        <motion.div
-          animate={{ x: [0, 8, 0], opacity: [0.5, 1, 0.5] }}
+          animate={{ x: [0, 8, 0], opacity: [0.4, 1, 0.4] }}
           transition={{ duration: 1.5, repeat: Infinity, delay: 0.6 }}
-          className="h-0.5 w-8 bg-gradient-to-r from-green-500 to-yellow-500"
+          className="h-0.5 w-8 bg-gradient-to-r from-purple-500 to-green-500"
         />
 
-        {/* Reports */}
+        {/* Step Functions */}
         <div className="flex flex-col items-center gap-2">
           <motion.div
-            animate={{ y: [0, -5, 0] }}
+            animate={{ scale: [1, 1.08, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="w-14 h-14 rounded-lg bg-yellow-500/20 border border-yellow-500 flex items-center justify-center text-yellow-400"
+            className="w-16 h-16 rounded-lg bg-green-500/20 border border-green-500 flex items-center justify-center text-green-400"
           >
-            <div className="flex flex-col gap-1">
-              <div className="w-6 h-1 bg-yellow-400 rounded-full" />
-              <div className="w-6 h-1 bg-yellow-400 rounded-full" />
-              <div className="w-4 h-1 bg-yellow-400 rounded-full" />
-            </div>
+            <Workflow size={22} />
           </motion.div>
-          <span className="text-xs text-foreground/50">Reports</span>
+          <span className="text-xs text-foreground/50 text-center leading-tight">Step Functions<br /><span className="text-[10px] text-foreground/30">Orchestration</span></span>
         </div>
       </div>
 
+      {/* Floating cloud icon */}
+      <motion.div
+        animate={{ y: [0, -10, 0], opacity: [0.15, 0.3, 0.15] }}
+        transition={{ duration: 4, repeat: Infinity }}
+        className="absolute top-4 right-4 text-orange-400"
+      >
+        <Cloud size={32} />
+      </motion.div>
+
       <div className="absolute inset-0 bg-grid-white/[0.02]" />
     </div>
-  )
+  );
 }
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" as const } },
+};
 
 export const Research = () => {
   return (
     <Section id="research" className="container mx-auto px-6">
-      <div className="flex flex-col md:flex-row gap-12">
+      <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="flex flex-col md:flex-row gap-12">
         <div className="flex-1 space-y-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
@@ -180,7 +176,7 @@ export const Research = () => {
               <h2 className="text-4xl font-bold text-foreground">Experience</h2>
             </div>
             <h3 className="text-2xl text-blue-600 font-bold mb-2">
-              Research Assistant
+              Research Assistant — AI Backend Development
             </h3>
             <p className="text-xl text-foreground/80 mb-4">IIIT Sri City (June 2025 – Aug 2025)</p>
 
@@ -200,13 +196,14 @@ export const Research = () => {
             </ul>
 
             <div className="flex flex-wrap gap-3 mt-8">
-              {["FastAPI", "XGBoost", "MLflow", "CNN + Attention", "IoT Security"].map(tag => (
+              {["FastAPI", "Flask", "XGBoost", "MLflow", "CNN + Attention", "IoT Security"].map(tag => (
                 <span key={tag} className="px-3 py-1 rounded-full bg-blue-600/10 text-blue-600 text-xs border border-blue-600/20 font-medium">
                   {tag}
                 </span>
               ))}
             </div>
           </div>
+
 
           <div className="pt-12 border-t border-white/10">
             <h3 className="text-2xl text-blue-600 font-bold mb-2">
@@ -216,19 +213,19 @@ export const Research = () => {
 
             <ul className="space-y-4 text-foreground/70 leading-relaxed list-disc pl-4 marker:text-blue-500">
               <li>
-                Built Python-based data pipelines for cleaning, transforming, and preparing real-world datasets for machine learning workflows.
+                Configured AWS S3 buckets (raw/labeled/processed data), SageMaker Ground Truth labeling, 30+ annotated images.
               </li>
               <li>
-                Performed exploratory data analysis (EDA) and feature engineering to identify patterns, reduce noise, and improve model readiness.
+                Deployed Lambda functions for preprocessing, configured IAM roles, orchestrated workflows via Step Functions.
               </li>
               <li>
-                Trained and evaluated supervised learning models, producing reproducible notebooks and technical reports for business-driven analytics.
+                Built production-ready ML pipeline integrating S3, Lambda, Step Functions for end-to-end automation.
               </li>
             </ul>
 
             <div className="flex flex-wrap gap-3 mt-8">
-              {["Python", "EDA", "Feature Engineering", "ML Pipelines", "Supervised Learning"].map(tag => (
-                <span key={tag} className="px-3 py-1 rounded-full bg-blue-600/10 text-blue-600 text-xs border border-blue-600/20 font-medium">
+              {["AWS S3", "SageMaker", "Lambda", "Step Functions", "IAM", "ML Pipeline"].map(tag => (
+                <span key={tag} className="px-3 py-1 rounded-full bg-orange-500/10 text-orange-500 text-xs border border-orange-500/20 font-medium">
                   {tag}
                 </span>
               ))}
@@ -238,9 +235,9 @@ export const Research = () => {
 
         <div className="flex-1 space-y-6">
           <ResearchVisual />
-          <DataScienceVisual />
+          <AWSPipelineVisual />
         </div>
-      </div>
+      </motion.div>
     </Section>
   );
 };

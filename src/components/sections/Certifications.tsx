@@ -1,7 +1,13 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import { Section } from "../ui/Section";
 import { Award, Trophy, Star, Users } from "lucide-react";
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+};
 
 const certifications = [
   {
@@ -44,6 +50,7 @@ const leadership = [
 export const Certifications = () => {
   return (
     <Section id="achievements" className="container mx-auto px-6">
+      <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }}>
       <h2 className="text-4xl font-bold text-center text-foreground mb-4">Achievements & Leadership</h2>
       <div className="h-1 w-20 bg-blue-500 rounded-full mx-auto mb-16" />
 
@@ -91,6 +98,7 @@ export const Certifications = () => {
           </div>
         </div>
       </div>
+      </motion.div>
     </Section>
   )
 }

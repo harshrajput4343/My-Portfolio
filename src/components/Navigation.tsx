@@ -84,7 +84,7 @@ export const Navigation = () => {
                     onMouseLeave={() => setResumeOpen(false)}
                   >
                     <a
-                      href="/resumes/Harsh_SDE_Resume.pdf"
+                      href="/resumes/Harsh_sde_Resume.pdf"
                       target="_blank"
                       className="flex items-center gap-3 px-4 py-3 text-sm text-foreground/80 hover:bg-foreground/5 hover:text-cyan-400 transition-colors border-b border-foreground/5"
                     >
@@ -97,16 +97,9 @@ export const Navigation = () => {
                       className="flex items-center gap-3 px-4 py-3 text-sm text-foreground/80 hover:bg-foreground/5 hover:text-cyan-400 transition-colors"
                     >
                       <Brain size={16} className="text-purple-400" />
-                      <span>AI / ML Engineer</span>
+                      <span>AI / DS  Engineer</span>
                     </a>
-                    <a
-                      href="\resumes\Harsh_backend_Resume.pdf"
-                      target="_blank"
-                      className="flex items-center gap-3 px-4 py-3 text-sm text-foreground/80 hover:bg-foreground/5 hover:text-cyan-400 transition-colors"
-                    >
-                      <Code size={16} className="text-blue-400" />
-                      <span>Backend Engineer</span>
-                    </a>
+                    
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -158,7 +151,7 @@ export const Navigation = () => {
                   <p className="text-sm text-foreground/50 font-medium uppercase tracking-wider mb-1">Download Resume</p>
                   <div className="grid grid-cols-2 gap-3">
                     <a
-                      href="/resumes/Harsh_SDE_Resume.pdf"
+                      href="/resumes/Harsh_sde_Resume.pdf"
                       target="_blank"
                       className="flex items-center justify-center gap-2 py-3 rounded-lg bg-foreground/5 border border-foreground/10 text-foreground/80 text-sm hover:bg-foreground/10 transition-colors"
                     >

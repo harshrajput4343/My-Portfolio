@@ -1,8 +1,14 @@
 "use client";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { Section } from "../ui/Section";
 import { Button } from "../ui/Button";
-import { Send, MapPin, Mail, Linkedin } from "lucide-react";
+import { Send, MapPin, Mail, Linkedin, Phone } from "lucide-react";
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+};
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -51,7 +57,7 @@ export const Contact = () => {
 
   return (
     <Section id="contact" className="container mx-auto px-6">
-      <div className="max-w-4xl mx-auto">
+      <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4">Let's Build the Future</h2>
           <p className="text-foreground/60">
@@ -118,7 +124,18 @@ export const Contact = () => {
               </div>
               <div>
                 <h4 className="font-bold text-foreground">Email</h4>
-                <a href="mailto:contact@harshkumar.ai" className="text-foreground/60 hover:text-foreground transition-colors">harshkumarsingh4343@gmail.com</a>
+                <a href="mailto:harshkumarsingh4343@gmail.com" className="text-foreground/60 hover:text-foreground transition-colors block">harshkumarsingh4343@gmail.com</a>
+                <a href="mailto:harsh.k22@iiits.in" className="text-foreground/60 hover:text-foreground transition-colors block text-sm">harsh.k22@iiits.in</a>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="p-3 bg-blue-500/10 rounded-xl text-blue-500">
+                <Phone className="w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="font-bold text-foreground">Phone</h4>
+                <a href="tel:+919341045191" className="text-foreground/60 hover:text-foreground transition-colors">+91 9341045191</a>
               </div>
             </div>
 
@@ -128,7 +145,7 @@ export const Contact = () => {
               </div>
               <div>
                 <h4 className="font-bold text-foreground">LinkedIn</h4>
-                <a href="#" className="text-foreground/60 hover:text-foreground transition-colors">www.linkedin.com/in/harshkumar4343</a>
+                <a href="https://www.linkedin.com/in/harshkumar4343/" target="_blank" className="text-foreground/60 hover:text-foreground transition-colors">linkedin.com/in/harshkumar4343</a>
               </div>
             </div>
 
@@ -144,7 +161,7 @@ export const Contact = () => {
           </div>
 
         </div>
-      </div>
+      </motion.div>
     </Section>
   );
 };

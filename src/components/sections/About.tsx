@@ -1,35 +1,61 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import { Section } from "../ui/Section";
 import Image from "next/image";
-import { BrainCircuit } from "lucide-react";
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" as const } },
+};
 
 export const About = () => {
   return (
     <Section id="about" className="container mx-auto px-6">
-      <div className="flex flex-col md:flex-row gap-12 items-center">
+      <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} className="flex flex-col md:flex-row gap-12 items-center">
 
         {/* Text Content */}
         <div className="md:w-3/5">
           <h2 className="text-4xl font-bold text-foreground mb-6">About Me</h2>
           <div className="space-y-4 text-lg text-foreground/70 leading-relaxed">
             <p>
-              I am a technologist specializing in <span className="font-bold text-blue-600">Intelligent Systems</span> and <span className="font-bold text-blue-600">Machine Learning</span>.
-              Currently pursuing my B.Tech in Electronics and Communication Engineering at <strong className="text-blue-600">IIIT Sri City</strong> (2022–2026),
-              I bridge the gap between hardware constraints and advanced AI models.
+              I am a <span className="font-bold text-blue-600">Full-Stack Developer</span> and <span className="font-bold text-blue-600">AI/ML Engineer</span> currently
+              pursuing my B.Tech in Electronics & Communication Engineering at <strong className="text-blue-600">IIIT Sri City</strong> (Nov 2022 – June 2026) with a CGPA of <strong className="text-blue-600">7.5</strong>.
+              I build production-grade applications and end-to-end machine learning pipelines that solve real-world problems.
             </p>
             <p>
-              Born in Aurangabad, Bihar, my journey has been shaped by a deep curiosity about how systems think, how data moves, and how intelligent decisions are formed from raw information.
-              As a <strong className="text-blue-600">Research Assistant</strong> in AI & IoT Security, I do not work at the level of isolated experiments or toy models;
-              I design end-to-end, production-grade intelligence pipelines that transform noisy real-world data into reliable, deployable systems.
-              My focus is on building architectures that remain stable under scale, resilient to uncertainty, and trustworthy in environments where failures carry real consequences.
+              Born in Aurangabad, Bihar, my journey has been shaped by a deep curiosity about how systems are built and how data drives intelligent decisions.
+              As a <strong className="text-blue-600">Research Assistant</strong> at IIIT Sri City and a <strong className="text-blue-600">Data Science Intern</strong> at CodeClause,
+              I have designed scalable backend services, deployed AI-based anomaly detection systems, and built collaborative filtering recommender systems.
+              My focus spans full-stack development with <strong className="text-blue-600">Next.js, React, and Node.js</strong> to deep learning pipelines with <strong className="text-blue-600">PyTorch, LangChain, and MLflow</strong>.
             </p>
+          </div>
+
+          {/* Education */}
+          <div className="mt-8 space-y-3">
+            <h3 className="text-sm font-bold text-foreground/40 uppercase tracking-widest">Education</h3>
+            <div className="space-y-2">
+              <div className="flex items-start gap-3 p-3 rounded-lg bg-foreground/5 border border-foreground/5">
+                <div className="w-2 h-2 mt-2 rounded-full bg-blue-500 shrink-0" />
+                <div>
+                  <p className="font-bold text-foreground text-sm">IIIT Sri City — B.Tech, ECE</p>
+                  <p className="text-xs text-foreground/50">CGPA: 7.5 • Nov 2022 – June 2026</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 p-3 rounded-lg bg-foreground/5 border border-foreground/5">
+                <div className="w-2 h-2 mt-2 rounded-full bg-blue-500 shrink-0" />
+                <div>
+                  <p className="font-bold text-foreground text-sm">D.A.V Public School — CBSE (X)</p>
+                  <p className="text-xs text-foreground/50">Percentage: 91.4% • April 2009 – April 2019</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="flex gap-8 mt-8">
             <div>
               <div className="flex items-baseline gap-1">
-                <h4 className="text-2xl font-bold text-foreground mb-1">3+</h4>
+                <h4 className="text-2xl font-bold text-foreground mb-1">4+</h4>
               </div>
               <p className="text-sm text-foreground/50">Years of Coding</p>
             </div>
@@ -38,6 +64,12 @@ export const About = () => {
                 <h4 className="text-2xl font-bold text-foreground mb-1">10+</h4>
               </div>
               <p className="text-sm text-foreground/50">Projects Built</p>
+            </div>
+            <div>
+              <div className="flex items-baseline gap-1">
+                <h4 className="text-2xl font-bold text-foreground mb-1">250+</h4>
+              </div>
+              <p className="text-sm text-foreground/50">Problems Solved</p>
             </div>
           </div>
         </div>
@@ -62,7 +94,7 @@ export const About = () => {
           </div>
         </div>
 
-      </div>
+      </motion.div>
     </Section>
   );
 };

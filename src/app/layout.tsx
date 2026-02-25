@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { AnimatedBackground } from "@/components/AnimatedBackground";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -31,8 +32,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
+        suppressHydrationWarning
         className={`${inter.variable} ${spaceGrotesk.variable} ${playfair.variable} antialiased bg-background text-foreground selection:bg-primary/30 selection:text-white overflow-x-hidden`}
       >
+        <AnimatedBackground />
         <div className="ambient-background">
           <div className="ambient-orb w-[60vw] h-[60vw] -top-[10%] -left-[10%] bg-[radial-gradient(circle,rgba(34,211,238,0.15)_0%,transparent_70%)] animate-drift" style={{ animationDuration: '30s' }} />
           <div className="ambient-orb w-[50vw] h-[50vw] top-[20%] right-[10%] bg-[radial-gradient(circle,rgba(167,139,250,0.15)_0%,transparent_70%)] animate-drift" style={{ animationDuration: '40s', animationDirection: 'reverse' }} />
