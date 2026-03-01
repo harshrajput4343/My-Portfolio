@@ -151,7 +151,7 @@ export const Navigation = () => {
                   <p className="text-sm text-foreground/50 font-medium uppercase tracking-wider mb-1">Download Resume</p>
                   <div className="grid grid-cols-2 gap-3">
                     <a
-                      href="/resumes/Harsh_sde_resume.pdf"
+                      href="public\resumes\Harsh_sde_resume.pdf"
                       target="_blank"
                       className="flex items-center justify-center gap-2 py-3 rounded-lg bg-foreground/5 border border-foreground/10 text-foreground/80 text-sm hover:bg-foreground/10 transition-colors"
                     >
