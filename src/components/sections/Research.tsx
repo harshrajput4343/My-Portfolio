@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Section } from "../ui/Section";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { FlaskConical, Server, Database, Cloud, Cog, Workflow, FolderOpen } from "lucide-react";
 
 const ResearchVisual = () => {
@@ -160,9 +160,9 @@ const AWSPipelineVisual = () => {
   );
 }
 
-const sectionVariants = {
+const sectionVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" as const } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
 export const Research = () => {
