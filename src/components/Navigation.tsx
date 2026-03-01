@@ -84,7 +84,7 @@ export const Navigation = () => {
                     onMouseLeave={() => setResumeOpen(false)}
                   >
                     <a
-                      href="/resumes/Harsh_sde_Resume.pdf"
+                      href="/resumes/Harsh_sde_resume.pdf"
                       target="_blank"
                       className="flex items-center gap-3 px-4 py-3 text-sm text-foreground/80 hover:bg-foreground/5 hover:text-cyan-400 transition-colors border-b border-foreground/5"
                     >
@@ -151,7 +151,7 @@ export const Navigation = () => {
                   <p className="text-sm text-foreground/50 font-medium uppercase tracking-wider mb-1">Download Resume</p>
                   <div className="grid grid-cols-2 gap-3">
                     <a
-                      href="public\resumes\Harsh_sde_resume.pdf"
+                      href="/resumes/Harsh_sde_resume.pdf"
                       target="_blank"
                       className="flex items-center justify-center gap-2 py-3 rounded-lg bg-foreground/5 border border-foreground/10 text-foreground/80 text-sm hover:bg-foreground/10 transition-colors"
                     >
