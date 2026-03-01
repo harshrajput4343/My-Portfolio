@@ -6,7 +6,7 @@ import { Award, Trophy, Star, Users } from "lucide-react";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" as const } },
 };
 
 const certifications = [
@@ -51,53 +51,53 @@ export const Certifications = () => {
   return (
     <Section id="achievements" className="container mx-auto px-6">
       <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }}>
-      <h2 className="text-4xl font-bold text-center text-foreground mb-4">Achievements & Leadership</h2>
-      <div className="h-1 w-20 bg-blue-500 rounded-full mx-auto mb-16" />
+        <h2 className="text-4xl font-bold text-center text-foreground mb-4">Achievements & Leadership</h2>
+        <div className="h-1 w-20 bg-blue-500 rounded-full mx-auto mb-16" />
 
-      <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-        {/* Certifications Column */}
-        <div className="space-y-8">
-          <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-            <Award className="text-blue-400" /> Certifications
-          </h3>
-          <div className="space-y-6">
-            {certifications.map((cert, index) => (
-              <div key={index} className="flex gap-4 p-4 rounded-xl bg-foreground/5 border border-foreground/5 hover:border-foreground/10 transition-colors">
-                <div className="mt-1">{cert.icon}</div>
-                <div>
-                  <h4 className="font-bold text-foreground leading-tight mb-1">{cert.title}</h4>
-                  <div className="text-sm text-foreground/50 flex gap-2 items-center">
-                    <span>{cert.issuer}</span>
-                    <span className="w-1 h-1 bg-foreground/30 rounded-full" />
-                    <span>{cert.year}</span>
+        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          {/* Certifications Column */}
+          <div className="space-y-8">
+            <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+              <Award className="text-blue-400" /> Certifications
+            </h3>
+            <div className="space-y-6">
+              {certifications.map((cert, index) => (
+                <div key={index} className="flex gap-4 p-4 rounded-xl bg-foreground/5 border border-foreground/5 hover:border-foreground/10 transition-colors">
+                  <div className="mt-1">{cert.icon}</div>
+                  <div>
+                    <h4 className="font-bold text-foreground leading-tight mb-1">{cert.title}</h4>
+                    <div className="text-sm text-foreground/50 flex gap-2 items-center">
+                      <span>{cert.issuer}</span>
+                      <span className="w-1 h-1 bg-foreground/30 rounded-full" />
+                      <span>{cert.year}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Leadership Column */}
-        <div className="space-y-8">
-          <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-            <Users className="text-purple-400" /> Leadership
-          </h3>
-          <div className="space-y-6">
-            {leadership.map((item, index) => (
-              <div key={index} className="flex gap-4 p-4 rounded-xl bg-foreground/5 border border-foreground/5 hover:border-foreground/10 transition-colors">
-                <div className="mt-1">{item.icon}</div>
-                <div>
-                  <h4 className="font-bold text-foreground leading-tight mb-1">{item.title}</h4>
-                  <div className="text-sm text-blue-400 mb-2">{item.role} • {item.period}</div>
-                  <p className="text-sm text-foreground/60 leading-relaxed">
-                    {item.desc}
-                  </p>
+          {/* Leadership Column */}
+          <div className="space-y-8">
+            <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+              <Users className="text-purple-400" /> Leadership
+            </h3>
+            <div className="space-y-6">
+              {leadership.map((item, index) => (
+                <div key={index} className="flex gap-4 p-4 rounded-xl bg-foreground/5 border border-foreground/5 hover:border-foreground/10 transition-colors">
+                  <div className="mt-1">{item.icon}</div>
+                  <div>
+                    <h4 className="font-bold text-foreground leading-tight mb-1">{item.title}</h4>
+                    <div className="text-sm text-blue-400 mb-2">{item.role} • {item.period}</div>
+                    <p className="text-sm text-foreground/60 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-      </div>
       </motion.div>
     </Section>
   )

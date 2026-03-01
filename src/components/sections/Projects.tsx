@@ -9,12 +9,12 @@ import { Button } from "../ui/Button";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut", staggerChildren: 0.12 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" as const, staggerChildren: 0.12 } },
 };
 
 const projectCardVariants = {
   hidden: { opacity: 0, y: 30, scale: 0.97 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: "easeOut" as const } },
 };
 
 const projects = [
@@ -96,66 +96,66 @@ export const Projects = () => {
   return (
     <Section id="projects" className="container mx-auto px-6">
       <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }}>
-      <div className="flex items-end justify-between mb-12">
-        <div>
-          <h2 className="text-4xl font-bold text-foreground mb-2">
-            Featured Work
-          </h2>
-          <p className="text-foreground/60">Production-grade applications and AI systems.</p>
+        <div className="flex items-end justify-between mb-12">
+          <div>
+            <h2 className="text-4xl font-bold text-foreground mb-2">
+              Featured Work
+            </h2>
+            <p className="text-foreground/60">Production-grade applications and AI systems.</p>
+          </div>
+          <Button variant="outline" className="hidden md:flex border-foreground text-foreground hover:bg-foreground hover:text-background" href="https://github.com/harshrajput4343">
+            View All on GitHub <Github size={16} />
+          </Button>
         </div>
-        <Button variant="outline" className="hidden md:flex border-foreground text-foreground hover:bg-foreground hover:text-background" href="https://github.com/harshrajput4343">
-          View All on GitHub <Github size={16} />
-        </Button>
-      </div>
 
 
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project) => (
-          <motion.div
-            key={project.title}
-            variants={projectCardVariants}
-            className="group relative bg-foreground/5 border border-foreground/5 rounded-2xl p-6 hover:bg-foreground/10 transition-all duration-300 hover:-translate-y-1"
-          >
-            <div className="flex justify-between items-start mb-6">
-              <div className="p-3 bg-blue-500/10 rounded-xl text-blue-500 group-hover:scale-110 transition-transform duration-300">
-                {project.icon}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project) => (
+            <motion.div
+              key={project.title}
+              variants={projectCardVariants}
+              className="group relative bg-foreground/5 border border-foreground/5 rounded-2xl p-6 hover:bg-foreground/10 transition-all duration-300 hover:-translate-y-1"
+            >
+              <div className="flex justify-between items-start mb-6">
+                <div className="p-3 bg-blue-500/10 rounded-xl text-blue-500 group-hover:scale-110 transition-transform duration-300">
+                  {project.icon}
+                </div>
+                <div className="flex gap-3">
+                  <Link href={project.github} target="_blank" className="text-foreground/40 hover:text-foreground transition-colors">
+                    <Github className="w-5 h-5" />
+                  </Link>
+                  <Link href={project.link} target="_blank" className="text-foreground/40 hover:text-foreground transition-colors">
+                    <ExternalLink className="w-5 h-5" />
+                  </Link>
+                </div>
               </div>
-              <div className="flex gap-3">
-                <Link href={project.github} target="_blank" className="text-foreground/40 hover:text-foreground transition-colors">
-                  <Github className="w-5 h-5" />
-                </Link>
-                <Link href={project.link} target="_blank" className="text-foreground/40 hover:text-foreground transition-colors">
-                  <ExternalLink className="w-5 h-5" />
-                </Link>
+
+              <div className="mb-6">
+                <h3 className="text-2xl font-bold text-foreground group-hover:text-blue-500 transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-foreground/70 mb-6 min-h-[60px] text-sm leading-relaxed">
+                  {project.description}
+                </p>
               </div>
-            </div>
 
-            <div className="mb-6">
-              <h3 className="text-2xl font-bold text-foreground group-hover:text-blue-500 transition-colors">
-                {project.title}
-              </h3>
-              <p className="text-foreground/70 mb-6 min-h-[60px] text-sm leading-relaxed">
-                {project.description}
-              </p>
-            </div>
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span key={tag} className="text-xs font-medium px-2 py-1 rounded bg-foreground/5 text-foreground/60 border border-foreground/5">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-            <div className="flex flex-wrap gap-2">
-              {project.tags.map((tag) => (
-                <span key={tag} className="text-xs font-medium px-2 py-1 rounded bg-foreground/5 text-foreground/60 border border-foreground/5">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      <div className="mt-8 flex justify-center md:hidden">
-        <Button variant="outline" className="border-foreground text-foreground hover:bg-foreground hover:text-background" href="https://github.com/harshrajput4343">
-          View All on GitHub <Github size={16} />
-        </Button>
-      </div>
+        <div className="mt-8 flex justify-center md:hidden">
+          <Button variant="outline" className="border-foreground text-foreground hover:bg-foreground hover:text-background" href="https://github.com/harshrajput4343">
+            View All on GitHub <Github size={16} />
+          </Button>
+        </div>
       </motion.div>
     </Section>
   );
