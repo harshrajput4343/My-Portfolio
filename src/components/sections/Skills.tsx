@@ -22,7 +22,7 @@ const skillsData = [
   },
   {
     category: "Frontend",
-    items: ["React.js", "Next.js", "Tailwind CSS", "Shadcn UI", "Redux", "Tiptap"],
+    items: ["React.js", "Next.js", "Tailwind CSS"],
     color: "from-pink-500 to-rose-500"
   },
   {
@@ -52,7 +52,7 @@ const skillsData = [
   },
   {
     category: "Core CS",
-    items: ["Data Structures & Algorithms", "Object-Oriented Programming", "Operating Systems"],
+    items: ["Data Structures & Algorithms", "Object-Oriented Programming", "Operating Systems", "System Design Basics"],
     color: "from-slate-500 to-gray-600"
   }
 ];

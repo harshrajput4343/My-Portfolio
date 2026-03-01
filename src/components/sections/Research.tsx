@@ -2,74 +2,92 @@
 import React from "react";
 import { Section } from "../ui/Section";
 import { motion, Variants } from "framer-motion";
-import { FlaskConical, Server, Database, Cloud, Cog, Workflow, FolderOpen } from "lucide-react";
+import { FlaskConical, Server, Database, Cloud, Cog, Workflow, FolderOpen, Activity, TableProperties } from "lucide-react";
 
 const ResearchVisual = () => {
   return (
-    <div className="relative h-96 w-full bg-white/5 rounded-xl overflow-hidden flex items-center justify-center border border-white/5">
-      {/* Simple Architecture Diagram */}
-      <div className="relative z-10 flex items-center gap-4 md:gap-8">
-        {/* IoT Node */}
+    <div className="relative h-96 w-full overflow-hidden flex items-center justify-center">
+      {/* 4 Step Flow: Nodes -> Process -> Engine -> Tracking */}
+      <div className="relative z-10 flex items-center gap-2 md:gap-4 lg:gap-6">
+
+        {/* Step 1: IoT Node */}
         <div className="flex flex-col items-center gap-2">
           <motion.div
             animate={{ scale: [1, 1.1, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="w-16 h-16 rounded-full bg-blue-500/20 border border-blue-500 flex items-center justify-center text-blue-400"
+            className="w-14 h-14 rounded-full bg-blue-500/10 border border-blue-500/50 flex items-center justify-center text-blue-500"
           >
-            <Server size={24} />
+            <Server size={20} />
           </motion.div>
-          <span className="text-xs text-white/50">FastAPI</span>
+          <span className="text-[10px] md:text-xs text-foreground/50 text-center">IoT Nodes</span>
         </div>
 
         {/* Arrow */}
         <motion.div
-          animate={{ x: [0, 10, 0], opacity: [0.5, 1, 0.5] }}
+          animate={{ opacity: [0.3, 1, 0.3] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="h-0.5 w-12 bg-gradient-to-r from-blue-500 to-cyan-500"
+          className="h-px w-6 md:w-10 bg-foreground/20"
         />
 
-        {/* Model */}
-        <div className="flex flex-col items-center gap-2">
-          <div className="w-24 h-24 rounded-xl bg-cyan-500/10 border border-cyan-500/50 flex flex-col items-center justify-center text-cyan-400 backdrop-blur-md">
-            <div className="text-xs font-mono mb-1">XGBoost + CNN</div>
-            <div className="grid grid-cols-3 gap-1">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(i => (
-                <motion.div
-                  key={i}
-                  animate={{ opacity: [0.2, 1, 0.2] }}
-                  transition={{ duration: 1, delay: i * 0.1, repeat: Infinity }}
-                  className="w-1.5 h-1.5 bg-cyan-400 rounded-full"
-                />
-              ))}
-            </div>
-          </div>
-          <span className="text-xs text-white/50">Inference</span>
+        {/* Step 2: Preprocessing */}
+        <div className="flex flex-col items-center gap-2 text-blue-500">
+          <motion.div
+            animate={{ y: [0, -4, 0] }}
+            transition={{ duration: 2, repeat: Infinity, delay: 0.2 }}
+            className="w-14 h-14 rounded-xl bg-blue-500/10 border border-blue-500/50 flex items-center justify-center"
+          >
+            <TableProperties size={20} />
+          </motion.div>
+          <span className="text-[10px] md:text-xs text-foreground/50 text-center">Preprocessing<br /><span className="text-[9px] text-foreground/30">NumPy/Pandas</span></span>
         </div>
 
         {/* Arrow */}
         <motion.div
-          animate={{ x: [0, 10, 0], opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
-          className="h-0.5 w-12 bg-gradient-to-r from-cyan-500 to-green-500"
+          animate={{ opacity: [0.3, 1, 0.3] }}
+          transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
+          className="h-px w-6 md:w-10 bg-foreground/20"
         />
 
-        {/* Output */}
-        <div className="flex flex-col items-center gap-2">
-          <div className="w-16 h-16 rounded-full bg-green-500/20 border border-green-500 flex items-center justify-center text-green-400">
-            <Database size={24} />
-          </div>
-          <span className="text-xs text-white/50">MLflow</span>
+        {/* Step 3: AI Backend */}
+        <div className="flex flex-col items-center gap-2 text-cyan-500">
+          <motion.div
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ duration: 2, repeat: Infinity, delay: 0.4 }}
+            className="w-16 h-16 rounded-xl bg-cyan-500/10 border border-cyan-500/50 flex flex-col items-center justify-center backdrop-blur-md p-1"
+          >
+            <Activity size={20} className="mb-1" />
+            <div className="text-[8px] font-mono text-center">FastAPI +<br />XGBoost</div>
+          </motion.div>
+          <span className="text-[10px] md:text-xs text-foreground/50 text-center">Anomaly<br />Detection</span>
         </div>
-      </div>
 
-      <div className="absolute inset-0 bg-grid-white/[0.02]" />
+        {/* Arrow */}
+        <motion.div
+          animate={{ opacity: [0.3, 1, 0.3] }}
+          transition={{ duration: 1.5, repeat: Infinity, delay: 0.6 }}
+          className="h-px w-6 md:w-10 bg-foreground/20"
+        />
+
+        {/* Step 4: Tracking */}
+        <div className="flex flex-col items-center gap-2 text-green-500">
+          <motion.div
+            animate={{ scale: [1, 1.1, 1] }}
+            transition={{ duration: 2, repeat: Infinity, delay: 0.8 }}
+            className="w-14 h-14 rounded-full bg-green-500/10 border border-green-500/50 flex items-center justify-center"
+          >
+            <Database size={20} />
+          </motion.div>
+          <span className="text-[10px] md:text-xs text-foreground/50 text-center">MLflow<br />Tracking</span>
+        </div>
+
+      </div>
     </div>
   )
 }
 
 const AWSPipelineVisual = () => {
   return (
-    <div className="relative h-96 w-full bg-white/5 rounded-xl overflow-hidden flex items-center justify-center border border-white/5">
+    <div className="relative h-96 w-full flex items-center justify-center">
       <div className="relative z-10 flex items-center gap-3 md:gap-5">
         {/* S3 Buckets */}
         <div className="flex flex-col items-center gap-2">
@@ -145,20 +163,9 @@ const AWSPipelineVisual = () => {
           <span className="text-xs text-foreground/50 text-center leading-tight">Step Functions<br /><span className="text-[10px] text-foreground/30">Orchestration</span></span>
         </div>
       </div>
-
-      {/* Floating cloud icon */}
-      <motion.div
-        animate={{ y: [0, -10, 0], opacity: [0.15, 0.3, 0.15] }}
-        transition={{ duration: 4, repeat: Infinity }}
-        className="absolute top-4 right-4 text-orange-400"
-      >
-        <Cloud size={32} />
-      </motion.div>
-
-      <div className="absolute inset-0 bg-grid-white/[0.02]" />
     </div>
   );
-}
+};
 
 const sectionVariants: Variants = {
   hidden: { opacity: 0, y: 40 },

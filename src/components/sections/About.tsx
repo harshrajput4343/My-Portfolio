@@ -42,13 +42,7 @@ export const About = () => {
                   <p className="text-xs text-foreground/50">CGPA: 7.5 • Nov 2022 – June 2026</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3 p-3 rounded-lg bg-foreground/5 border border-foreground/5">
-                <div className="w-2 h-2 mt-2 rounded-full bg-blue-500 shrink-0" />
-                <div>
-                  <p className="font-bold text-foreground text-sm">D.A.V Public School — CBSE (X)</p>
-                  <p className="text-xs text-foreground/50">Percentage: 91.4% • April 2009 – April 2019</p>
-                </div>
-              </div>
+
             </div>
           </div>
 
