@@ -216,7 +216,7 @@ export const Research = () => {
             <h3 className="text-2xl text-blue-600 font-bold mb-2">
               Data Science Intern
             </h3>
-            <p className="text-xl text-foreground/80 mb-4">CodeClause (Dec 2025 – Jan 2026)</p>
+            <p className="text-xl text-foreground/80 mb-4">The Skybrisk (Dec 2025 – Mar 2026)</p>
 
             <ul className="space-y-4 text-foreground/70 leading-relaxed list-disc pl-4 marker:text-blue-500">
               <li>

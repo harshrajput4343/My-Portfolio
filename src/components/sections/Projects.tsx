@@ -3,9 +3,10 @@ import React from "react";
 import { motion, Variants } from "framer-motion";
 import { Section } from "../ui/Section";
 import { Card } from "../ui/Card";
-import { ExternalLink, Github, ShoppingCart, FileText, MessageSquare, Trash2, HardHat, BookOpen, LayoutDashboard, BotMessageSquare } from "lucide-react";
+import { ExternalLink, Github, ShoppingCart, FileText, MessageSquare, Trash2, HardHat, BookOpen, LayoutDashboard, BotMessageSquare, Mic } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/Button";
+
 
 const sectionVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -46,20 +47,20 @@ const projects = [
     icon: <ShoppingCart size={24} />
   },
   {
-    title: "ResoTrack",
-    description: "Serverless AI resume analyzer with React.js and TypeScript. Integrates Puter cloud for storage and authentication, Gemini API for ATS scoring, client-side PDF processing, and drag-and-drop file upload with real-time feedback.",
-    tags: ["React.js", "TypeScript", "Gemini API", "Puter Cloud", "Tailwind CSS", "React Router"],
-    stats: "Real-time ATS Scoring",
-    link: "https://github.com/harshrajput4343/ResoTrack/tree/main",
-    github: "https://github.com/harshrajput4343/ResoTrack",
-    icon: <FileText size={24} />
+    title: "Voxmind",
+    description: "Emotion-aware AI voice generation platform built with FastAPI and Hugging Face Transformers. Integrates Gemini TTS, ElevenLabs, SSML prosody control, and multi-provider speech synthesis with a 4-level NLP fallback pipeline for expressive real-time audio generation.",
+    tags: ["FastAPI", "Python", "Hugging Face", "Gemini TTS", "ElevenLabs", "Docker", "SSML", "NLP"],
+    stats: "Multi-Provider AI Voice Synthesis",
+    link: "https://github.com/harshrajput4343/VoxMind",
+    github: "https://github.com/harshrajput4343/VoxMind",
+    icon: <Mic size={24} />
   },
   {
-    title: "AI Medical Chatbot",
+    title: "AI Medical Assistant",
     description: "LLM-powered healthcare assistant using GPT-4 and Gemini with prompt engineering and RAG over Pinecone vector search. LangChain pipelines for document ingestion, semantic retrieval, and Flask-based inference APIs with caching and logging.",
     tags: ["Gemini", "GPT-4", "LangChain", "Pinecone", "Hugging Face", "Flask", "AWS"],
     stats: "Context-Aware RAG Pipeline",
-    link: "https://github.com/harshrajput4343/Medical-Chatbot-GenAi/tree/main",
+    link: "https://harshmedbot.duckdns.org/",
     github: "https://github.com/harshrajput4343/Medical-Chatbot-GenAi",
     icon: <MessageSquare size={24} />
   },

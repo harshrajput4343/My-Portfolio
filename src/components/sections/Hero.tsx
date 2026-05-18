@@ -47,7 +47,7 @@ export const Hero = () => {
             Harsh Kumar
           </h1>
           <h2 className="text-2xl md:text-3xl text-foreground/80 mb-10 font-light max-w-3xl mx-auto leading-relaxed">
-            Software Developer & <span className="font-serif italic text-blue-600">AI/ML Engineer</span>
+            Software Developer & <span className="font-serif italic text-blue-600">AI Systems Engineer</span>
           </h2>
           <p className="text-foreground/60 mb-12 max-w-xl mx-auto text-lg leading-relaxed">
             Building production-grade applications and intelligent systems — from full-stack platforms to end-to-end ML pipelines.

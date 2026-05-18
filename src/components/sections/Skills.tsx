@@ -17,7 +17,7 @@ const cardVariants: Variants = {
 const skillsData = [
   {
     category: "Languages",
-    items: ["C/C++", "TypeScript", "JavaScript", "Python", "SQL"],
+    items: ["C/C++", "Python", "TypeScript", "JavaScript", "SQL"],
     color: "from-blue-600 to-indigo-600"
   },
   {
